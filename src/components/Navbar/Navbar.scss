@@ -52,23 +52,30 @@
     position: absolute;
     box-shadow: 2px 2px 4px #888888;
     transition: transform 0.3s ease;
-    width: 150px;
+    width: 200px;
     top: 19.2px;
     height: fit-content;
-    padding: 10px;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     left: -40px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
     transform: scale(0);
+    padding: 1rem 0rem;
     .dropdownLink {
       text-align: center;
       display: flex;
       flex-direction: column;
       & > * {
-        padding: 5px 0;
-        margin: 1px 0;
+        padding: 2px 0;
+        margin: 4px 0;
+        transition: 0.3s ease;
+        transition-property: transform, background;
+
+        &:hover {
+          transform: scale(1.06);
+          background: #0000000e;
+        }
       }
     }
   }
