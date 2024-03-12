@@ -12,8 +12,6 @@ function App() {
       <Navbar>
         <NavbarLogo />
         <NavbarLinksWrapper>
-          <NavLink className="newLink"></NavLink>
-          <NavLink className="newLink"></NavLink>
           <DropDown>
             <NavLink>Siraj</NavLink>
             <NavLink>Siraj</NavLink>
@@ -22,8 +20,6 @@ function App() {
             <NavLink>Siraj</NavLink>
             <NavLink>Siraj</NavLink>
           </DropDown>
-          <NavLink className="newLink"></NavLink>
-          <NavLink className="newLink"></NavLink>
         </NavbarLinksWrapper>
       </Navbar>
       <div>
