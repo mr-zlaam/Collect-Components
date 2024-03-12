@@ -51,7 +51,7 @@ export const NavbarLogo = ({
 };
 
 export const NavbarLinksWrapper = ({ children }: NavbarLogoProps) => {
-  return <div>{children}</div>;
+  return <div className="NavbarLinksWrapper">{children}</div>;
 };
 interface NavLinkProps extends React.HTMLAttributes<HTMLHyperlinkElementUtils> {
   children?: React.ReactNode;
@@ -59,6 +59,7 @@ interface NavLinkProps extends React.HTMLAttributes<HTMLHyperlinkElementUtils> {
   to?: string | "" | undefined;
   color?: string | "" | undefined;
   backgroundColor?: string | "" | undefined;
+  target?: "_blank" | "_parent" | "_self" | "_top" | "" | undefined;
 }
 export const NavLink = ({
   children = "Link",
@@ -68,24 +69,42 @@ export const NavLink = ({
   ...rest
 }: NavLinkProps) => {
   return (
-    <a
-      {...rest}
-      className={`hyperLink ${className}`}
-      style={{ color: color, background: backgroundColor }}
-    >
-      {children}
-    </a>
+    <div className={className}>
+      <a
+        {...rest}
+        className={`hyperLink ${className}`}
+        style={{ color: color, background: backgroundColor }}
+      >
+        {children}
+      </a>
+    </div>
   );
 };
 import DropDownArrow from "./dropdown.svg";
-interface DropDownProps extends React.HTMLAttributes<HTMLSpanElement> {}
+interface DropDownProps extends React.HTMLAttributes<HTMLSpanElement> {
+  title?: string | undefined;
+  backgroundColor?: string | undefined | "";
+  color?: string | undefined | "";
+}
 
-export const DropDown = ({ children = "Services" }: DropDownProps) => {
+export const DropDown = ({
+  children,
+  title = "Services",
+
+  backgroundColor = "#ffffff",
+  color = "#000000",
+}: DropDownProps) => {
   return (
     <>
-      <span className="dropdownContainer">
-        {children} <img src={DropDownArrow} alt="dropdown" width={20} />
-      </span>
+      <div className="dropdownContainer">
+        {title} <img src={DropDownArrow} alt="dropdown" width={20} />
+        <div
+          className="dropDownModal"
+          style={{ background: backgroundColor, color: color }}
+        >
+          <div className="dropdownLink">{children}</div>
+        </div>
+      </div>
     </>
   );
 };

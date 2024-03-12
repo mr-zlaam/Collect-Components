@@ -31,15 +31,44 @@
   text-decoration: none;
   margin: 0 1rem;
   user-select: none;
+}
+.NavbarLinksWrapper {
   display: flex;
   align-items: center;
 }
 .dropdownContainer {
   user-select: none;
+  cursor: pointer;
+  display: flex;
   position: relative;
-  & img {
-    position: relative;
-    top: 0.3rem;
-    right: 0.2rem;
+  top: 1.3px;
+  &:hover {
+    .dropDownModal {
+      transform: scale(1);
+    }
+  }
+  .dropDownModal {
+    position: absolute;
+    box-shadow: 2px 2px 4px #888888;
+    transition: transform 0.3s ease;
+    width: 150px;
+    top: 19.2px;
+    height: fit-content;
+    padding: 10px;
+    border-radius: 1rem;
+    left: -40px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: scale(0);
+    .dropdownLink {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      & > * {
+        padding: 5px 0;
+        margin: 1px 0;
+      }
+    }
   }
 }
